@@ -8,10 +8,10 @@ public class Digit : MonoBehaviour
 {
     public DigitCreator digitCreator;
 
-    [HideInInspector]
-    public int id;
+    private int id;
     private List<GameObject> digitSprites = new List<GameObject>();
     private DigitRef[] digitRefs;
+    public int ID { set { id = value; } }
 
     private void Start()
     {
@@ -19,18 +19,27 @@ public class Digit : MonoBehaviour
         {
             throw new System.Exception("Il n'y a pas de DigitCreator attribué au digit.");
         }
-
-        int digitRef = int.Parse(ScoreDisplay.Instance?.scoreDeTest.ToString("0000")[id].ToString());
-        digitRefs = digitCreator.digitRefs;
-
+        
         foreach(Transform t in transform)
         {
             digitSprites.Add(t.gameObject);
         }
 
+        digitRefs = digitCreator.digitRefs;
+    }
+
+    public void UpdateDigitForScore(int score)
+    {
+        int digitRef = int.Parse(score.ToString("0000")[id].ToString());
+
         for (int i = 0; i < digitSprites.Count; i++)
         {
             digitSprites[i].SetActive(digitRefs[digitRef].booleans[i]);
         }
+    }
+
+    public void UpdateDigitForTime(int time)
+    {
+        //
     }
 }
