@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DisplaySprites : MonoBehaviour
 {
@@ -23,8 +24,24 @@ public class DisplaySprites : MonoBehaviour
     private int _GetSetPositionSpriteR;
     public int GetSetPositionSpriteR { get { return _GetSetPositionSpriteR; } set { _GetSetPositionSpriteR = value; } }
 
+    public int life = 3;
+
+    public bool gameLaunched;
+    private bool canMove;
+
+    public float delay;
+    private float timer = 0f;
     private void Start()
     {
+        // Player doesn't play
+        gameLaunched = false;
+        canMove = true;
+        if (!gameLaunched)
+        {
+            RandomMove();
+        }
+
+        // Init sprites
         int k = 0;
         for(int i = 0; i < 3; i++)
         {
@@ -37,10 +54,25 @@ public class DisplaySprites : MonoBehaviour
         }
         player = birdsSprites[4];
         player.gameObject.SetActive(true);
+
+        // Init life
+        for(int i = 0; i < lifeSprites.Count; i++)
+        {
+            lifeSprites[i].gameObject.SetActive(true);
+        }
     }
 
     private void Update()
     {
+        if (!gameLaunched) timer += Time.deltaTime;
+
+        if(timer >= delay)
+        {
+            RandomMove();
+        }
+
+        if (Input.anyKeyDown) gameLaunched = true;
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Move("up", player);
@@ -56,6 +88,12 @@ public class DisplaySprites : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             Move("right", player);
+        }
+
+        if(life <= 0)
+        {
+            // Game Over
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -146,7 +184,7 @@ public class DisplaySprites : MonoBehaviour
     public void Move(string direction, Image previousSprite)
     {
         bool checkPos = CheckPosition(direction, previousSprite);
-        if (!checkPos)
+        if (!checkPos && gameLaunched)
         {
             Debug.Log("Can't Move!");
             return;
@@ -179,4 +217,74 @@ public class DisplaySprites : MonoBehaviour
                 return;
         }
     }
+
+    private void RandomMove()
+    {
+        int rand = Random.Range(0, 4);
+        switch (rand)
+        {
+            case 0:
+                bool checkUp = CheckPosition("up", player);
+                if (!checkUp)
+                {
+                    canMove = false;
+                    timer = 10f;
+                }
+                else
+                {
+                    Move("up", player);
+                    timer = 0f;
+                }
+                return;
+            case 1:
+                bool checkDown = CheckPosition("down", player);
+                if (!checkDown)
+                {
+                    canMove = false;
+                    timer = 10f;
+                }
+                else
+                {
+                    Move("down", player);
+                    timer = 0f;
+                }
+                return;
+            case 2:
+                bool checkLeft = CheckPosition("left", player);
+                if (!checkLeft)
+                {
+                    canMove = false;
+                    timer = 10f;
+                }
+                else
+                {
+                    Move("left", player);
+                    timer = 0f;
+                }
+                return;
+            case 3:
+                bool checkRight = CheckPosition("right", player);
+                if (!checkRight)
+                {
+                    canMove = false;
+                    timer = 10f;
+                }
+                else
+                {
+                    Move("right", player);
+                    timer = 0f;
+                }
+                return;
+            default:
+                Debug.LogError("The player does not move !");
+                break;
+        }
+        //StartCoroutine(PlayerDelay());
+    }
+
+    /* private IEnumerator PlayerDelay()
+     {
+         yield return new WaitForSeconds(delay);
+         if(!gameLaunched) RandomMove();
+     }*/
 }
