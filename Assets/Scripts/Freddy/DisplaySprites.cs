@@ -90,6 +90,12 @@ public class DisplaySprites : MonoBehaviour
             Move("right", player);
         }
 
+        // Debug
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TakeDamage();
+        }
+
         if(life <= 0)
         {
             // Game Over
@@ -280,6 +286,12 @@ public class DisplaySprites : MonoBehaviour
                 break;
         }
         //StartCoroutine(PlayerDelay());
+    }
+
+    public void TakeDamage()
+    {
+        life--;
+        lifeSprites[life].gameObject.SetActive(false);
     }
 
     /* private IEnumerator PlayerDelay()
