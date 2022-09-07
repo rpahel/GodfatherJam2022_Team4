@@ -7,6 +7,8 @@ public class Patern : MonoBehaviour
     private CatController catController;
     public CatMoves[] catMoves;
 
+    [HideInInspector] public bool isOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,14 +65,14 @@ public class Patern : MonoBehaviour
 
         }
 
-        
-
-        catController.DisablePaws();
+        GameManager.Instance.catController.PlayPatern();
+        //catController.DisablePaws();
     }
 
     public void Play()
     {
         catController.DisablePaws();
+        isOver = false;
 
         StartCoroutine(CatPatern());
     }
