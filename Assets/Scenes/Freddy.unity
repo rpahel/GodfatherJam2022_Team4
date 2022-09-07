@@ -1453,6 +1453,7 @@ MonoBehaviour:
   player: {fileID: 0}
   life: 3
   gameLaunched: 0
+  scoreHour: {fileID: 1879697621}
   delay: 2
 --- !u!4 &1548262029
 Transform:
@@ -1594,6 +1595,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1879697621 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2222252808998022607, guid: 6d9f2372ef2e9b0418ea74859269fd15, type: 3}
+  m_PrefabInstance: {fileID: 383159944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57bc6efd3340e4a4caeac6f4ef5a64d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1920261461
 GameObject:
   m_ObjectHideFlags: 0
