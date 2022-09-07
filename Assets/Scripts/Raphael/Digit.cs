@@ -26,17 +26,14 @@ public class Digit : MonoBehaviour
 
         foreach (Transform t in transform)
         {
-            print($"{t.gameObject} appartient à {gameObject}");
             digitSprites.Add(t.gameObject);
         }
 
-        print($"Il y a {digitSprites.Count} dans {gameObject} A");
     }
 
     public void UpdateDigit(int score)
     {
         int digitRef = int.Parse(score.ToString("0000")[id].ToString());
-        print($"Il y a {digitSprites.Count} dans {gameObject} B");
         for (int i = 0; i < digitSprites.Count; i++)
         {
             digitSprites[i].SetActive(digitRefs[digitRef].booleans[i]);
