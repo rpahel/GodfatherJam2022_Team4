@@ -73,19 +73,19 @@ public class DisplaySprites : MonoBehaviour
 
         if (Input.anyKeyDown) gameLaunched = true;
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Move("up", player);
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             Move("down", player);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Move("left", player);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             Move("right", player);
         }
@@ -96,11 +96,7 @@ public class DisplaySprites : MonoBehaviour
             TakeDamage();
         }
 
-        if(life <= 0)
-        {
-            // Game Over
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        
     }
 
     public bool CheckPosition(string direction, Image spriteActive)
@@ -290,8 +286,16 @@ public class DisplaySprites : MonoBehaviour
 
     public void TakeDamage()
     {
+
         life--;
         lifeSprites[life].gameObject.SetActive(false);
+
+        if (life <= 0)
+        {
+            // Game Over
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
 
     /* private IEnumerator PlayerDelay()

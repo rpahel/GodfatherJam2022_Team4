@@ -12,6 +12,8 @@ public class CatController : MonoBehaviour
     public CatImage[] paws;
     public Patern[] catPaterns;
     public float attackDelay = 1f;
+    public float stayDelay = 0.5f;
+
 
     void Start()
     {
@@ -22,16 +24,15 @@ public class CatController : MonoBehaviour
     {
         DisablePaws();
 
-
-        //int i = Random.Range(0, catPaterns.Length);
-        catPaterns[Random.Range(0, catPaterns.Length)].Play();
+        int i = Random.Range(0, catPaterns.Length);
+        catPaterns[i].Play();
     }
 
     public void DisablePaws()
     {
         for (int i = 0; i < paws.Length; i++)
         {
-            paws[i].paw.SetActive(false); 
+            paws[i].paw.SetActive(false);
             paws[i].exclamation.SetActive(false);
         }
     }
