@@ -267,7 +267,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -283,7 +283,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1705437969}
+  - {fileID: 1983436832}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -376,12 +376,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1705437969 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2222252808998022604, guid: 6d9f2372ef2e9b0418ea74859269fd15, type: 3}
-  m_PrefabInstance: {fileID: 2222252807444367069}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2222252807444367069
+--- !u!1001 &913087509
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -418,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2222252808998022604, guid: 6d9f2372ef2e9b0418ea74859269fd15, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 584
+      value: 749.9115
       objectReference: {fileID: 0}
     - target: {fileID: 2222252808998022604, guid: 6d9f2372ef2e9b0418ea74859269fd15, type: 3}
       propertyPath: m_SizeDelta.y
@@ -474,7 +469,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2222252808998022605, guid: 6d9f2372ef2e9b0418ea74859269fd15, type: 3}
       propertyPath: m_Name
-      value: Score
+      value: DigitsDisplay
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d9f2372ef2e9b0418ea74859269fd15, type: 3}
+--- !u!224 &1983436832 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2222252808998022604, guid: 6d9f2372ef2e9b0418ea74859269fd15, type: 3}
+  m_PrefabInstance: {fileID: 913087509}
+  m_PrefabAsset: {fileID: 0}

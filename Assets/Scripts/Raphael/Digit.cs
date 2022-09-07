@@ -28,7 +28,7 @@ public class Digit : MonoBehaviour
         digitRefs = digitCreator.digitRefs;
     }
 
-    public void UpdateDigitForScore(int score)
+    public void UpdateDigit(int score)
     {
         int digitRef = int.Parse(score.ToString("0000")[id].ToString());
 
@@ -36,10 +36,5 @@ public class Digit : MonoBehaviour
         {
             digitSprites[i].SetActive(digitRefs[digitRef].booleans[i]);
         }
-    }
-
-    public void UpdateDigitForTime(int time)
-    {
-        //
     }
 }
