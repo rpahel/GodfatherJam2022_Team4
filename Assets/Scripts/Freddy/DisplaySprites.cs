@@ -15,7 +15,9 @@ public class DisplaySprites : MonoBehaviour
     [Tooltip("Drop the sprites of the life.")]
     public List<Image> lifeSprites;
 
-    private Image player;
+    [HideInInspector]
+    public Image player;
+
     private Image[,] birdPosition = new Image[3, 3];
 
     private int _GetSetPositionSpriteC;
@@ -25,9 +27,9 @@ public class DisplaySprites : MonoBehaviour
     public int GetSetPositionSpriteR { get { return _GetSetPositionSpriteR; } set { _GetSetPositionSpriteR = value; } }
 
     public int life = 3;
+    private StatePlayer statePlayer;
 
     public bool gameLaunched;
-    private bool canMove;
 
     public float delay;
     private float timer = 0f;
@@ -35,7 +37,6 @@ public class DisplaySprites : MonoBehaviour
     {
         // Player doesn't play
         gameLaunched = false;
-        canMove = true;
         if (!gameLaunched)
         {
             RandomMove();
@@ -56,6 +57,7 @@ public class DisplaySprites : MonoBehaviour
         player.gameObject.SetActive(true);
 
         // Init life
+        statePlayer = GetComponent<StatePlayer>();
         for(int i = 0; i < lifeSprites.Count; i++)
         {
             lifeSprites[i].gameObject.SetActive(true);
@@ -229,7 +231,6 @@ public class DisplaySprites : MonoBehaviour
                 bool checkUp = CheckPosition("up", player);
                 if (!checkUp)
                 {
-                    canMove = false;
                     timer = 10f;
                 }
                 else
@@ -242,7 +243,6 @@ public class DisplaySprites : MonoBehaviour
                 bool checkDown = CheckPosition("down", player);
                 if (!checkDown)
                 {
-                    canMove = false;
                     timer = 10f;
                 }
                 else
@@ -255,7 +255,6 @@ public class DisplaySprites : MonoBehaviour
                 bool checkLeft = CheckPosition("left", player);
                 if (!checkLeft)
                 {
-                    canMove = false;
                     timer = 10f;
                 }
                 else
@@ -268,7 +267,6 @@ public class DisplaySprites : MonoBehaviour
                 bool checkRight = CheckPosition("right", player);
                 if (!checkRight)
                 {
-                    canMove = false;
                     timer = 10f;
                 }
                 else
@@ -286,7 +284,6 @@ public class DisplaySprites : MonoBehaviour
 
     public void TakeDamage()
     {
-
         life--;
         lifeSprites[life].gameObject.SetActive(false);
 
@@ -295,7 +292,7 @@ public class DisplaySprites : MonoBehaviour
             // Game Over
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-
+        statePlayer.UpdateState(life);
     }
 
     /* private IEnumerator PlayerDelay()
