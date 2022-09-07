@@ -81,7 +81,7 @@ public class DisplaySprites : MonoBehaviour
         if (Input.anyKeyDown)
         {
             gameLaunched = true;
-            scoreHour.UpdateScore(2348);
+            //scoreHour.UpdateScore(2348);
         }
 
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))

@@ -19,22 +19,27 @@ public class Digit : MonoBehaviour
         {
             throw new System.Exception("Il n'y a pas de DigitCreator attribué au digit.");
         }
-        
-        foreach(Transform t in transform)
+
+        digitRefs = digitCreator.digitRefs;
+
+        digitSprites = new List<GameObject>();
+
+        foreach (Transform t in transform)
         {
+            print($"{t.gameObject} appartient à {gameObject}");
             digitSprites.Add(t.gameObject);
         }
 
-        digitRefs = digitCreator.digitRefs;
+        print($"Il y a {digitSprites.Count} dans {gameObject} A");
     }
 
     public void UpdateDigit(int score)
     {
         int digitRef = int.Parse(score.ToString("0000")[id].ToString());
+        print($"Il y a {digitSprites.Count} dans {gameObject} B");
         for (int i = 0; i < digitSprites.Count; i++)
         {
             digitSprites[i].SetActive(digitRefs[digitRef].booleans[i]);
-            Debug.Log($"{gameObject} : {digitRefs[digitRef].booleans[i]}");
         }
     }
 }

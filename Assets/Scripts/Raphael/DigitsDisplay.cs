@@ -45,11 +45,6 @@ public class DigitsDisplay : MonoBehaviour
         colonObj = colon.gameObject;
     }
 
-    private void Start()
-    {
-     
-    }
-
     public void UpdateScore(int score)
     {
         if(am.activeSelf || pm.activeSelf || colonObj.activeSelf)
@@ -70,7 +65,6 @@ public class DigitsDisplay : MonoBehaviour
     {
         localDate = DateTime.Now;
         string localDateString = localDate.ToString("hhmmt");
-        print(localDateString);
 
         if(localDateString[4] == 'A')
         {
