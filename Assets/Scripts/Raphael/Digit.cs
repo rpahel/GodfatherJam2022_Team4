@@ -31,10 +31,10 @@ public class Digit : MonoBehaviour
     public void UpdateDigit(int score)
     {
         int digitRef = int.Parse(score.ToString("0000")[id].ToString());
-
         for (int i = 0; i < digitSprites.Count; i++)
         {
             digitSprites[i].SetActive(digitRefs[digitRef].booleans[i]);
+            Debug.Log($"{gameObject} : {digitRefs[digitRef].booleans[i]}");
         }
     }
 }

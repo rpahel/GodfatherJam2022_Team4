@@ -7,20 +7,21 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class DigitsDisplay : MonoBehaviour
 {
-    private List<Digit> digits = new List<Digit>();
+    private List<Digit> digits;
     private GameObject am, pm, colonObj;
     private DateTime localDate;
     private CultureInfo culture;
 
     public Transform amPm, colon;
 
-    private void Start()
+    private void Awake()
     {
         culture = new CultureInfo("en-US");
         CultureInfo.CurrentCulture = culture;
 
         int i = 0;
-        foreach(Transform child in transform)
+        digits = new List<Digit>();
+        foreach (Transform child in transform)
         {
             Digit digit;
             if (child.TryGetComponent<Digit>(out digit))
@@ -31,7 +32,7 @@ public class DigitsDisplay : MonoBehaviour
             }
         }
 
-        if(amPm.childCount != 2)
+        if (amPm.childCount != 2)
         {
             throw new System.Exception($"L'objet AmPm de {gameObject} doit seulement avoir deux enfants.");
         }
@@ -42,8 +43,11 @@ public class DigitsDisplay : MonoBehaviour
         }
 
         colonObj = colon.gameObject;
+    }
 
-        UpdateTime();
+    private void Start()
+    {
+     
     }
 
     public void UpdateScore(int score)

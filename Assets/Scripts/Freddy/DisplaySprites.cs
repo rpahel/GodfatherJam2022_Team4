@@ -30,6 +30,7 @@ public class DisplaySprites : MonoBehaviour
     private StatePlayer statePlayer;
 
     public bool gameLaunched;
+    public DigitsDisplay scoreHour;
 
     public float delay;
     private float timer = 0f;
@@ -39,6 +40,7 @@ public class DisplaySprites : MonoBehaviour
         gameLaunched = false;
         if (!gameLaunched)
         {
+            scoreHour.UpdateTime();
             RandomMove();
         }
 
@@ -66,14 +68,21 @@ public class DisplaySprites : MonoBehaviour
 
     private void Update()
     {
-        if (!gameLaunched) timer += Time.deltaTime;
+        if (!gameLaunched)
+        {
+            timer += Time.deltaTime;
+        }
 
         if(timer >= delay)
         {
             RandomMove();
         }
 
-        if (Input.anyKeyDown) gameLaunched = true;
+        if (Input.anyKeyDown)
+        {
+            gameLaunched = true;
+            scoreHour.UpdateScore(2348);
+        }
 
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -98,7 +107,12 @@ public class DisplaySprites : MonoBehaviour
             TakeDamage();
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            scoreHour.UpdateScore(26);
+        }
+
+
     }
 
     public bool CheckPosition(string direction, Image spriteActive)
