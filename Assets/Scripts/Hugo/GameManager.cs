@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public DisplaySprites player;
     public CatController catController;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instance = this;
     }
