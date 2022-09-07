@@ -8,7 +8,7 @@ public class Patern : MonoBehaviour
     public CatMoves[] catMoves;
 
     [HideInInspector] public bool isOver = false;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +63,9 @@ public class Patern : MonoBehaviour
 
             yield return new WaitForSeconds(catController.stayDelay);
 
+            if(GameManager.Instance.player.gameLaunched)
+                GameManager.Instance.player.scoreHour.UpdateScore(++GameManager.Instance.score);
+
         }
 
         GameManager.Instance.catController.PlayPatern();
@@ -71,6 +74,7 @@ public class Patern : MonoBehaviour
 
     public void Play()
     {
+        catController = GameManager.Instance.catController;
         catController.DisablePaws();
         isOver = false;
 

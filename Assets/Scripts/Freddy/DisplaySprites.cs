@@ -292,15 +292,20 @@ public class DisplaySprites : MonoBehaviour
 
     public void TakeDamage()
     {
-        life--;
-        lifeSprites[life].gameObject.SetActive(false);
+        if (gameLaunched)
+        {
+            StopAllCoroutines();
+            //GameManager.Instance.catController.PlayPatern();
+            life--;
+            lifeSprites[life].gameObject.SetActive(false);
+            statePlayer.UpdateState(life);
+        }
 
         if (life <= 0)
         {
             // Game Over
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        statePlayer.UpdateState(life);
     }
 
     /* private IEnumerator PlayerDelay()
