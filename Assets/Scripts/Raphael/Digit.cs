@@ -13,7 +13,7 @@ public class Digit : MonoBehaviour
     private DigitRef[] digitRefs;
     public int ID { set { id = value; } }
 
-    private void Start()
+    private void Awake()
     {
         if (digitCreator == null)
         {
