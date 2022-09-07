@@ -7,9 +7,6 @@ public class StatePlayer : MonoBehaviour
 {
     private DisplaySprites player;
 
-    [Tooltip("Drop the different states of the player when he's gonna be hit.")]
-    public List<Sprite> stateSprites;
-
     private void Start()
     {
         player = GetComponent<DisplaySprites>();
@@ -21,13 +18,13 @@ public class StatePlayer : MonoBehaviour
             case 2:
                 foreach (Image playerImg in player.birdsSprites)
                 {
-                    playerImg.sprite = stateSprites[0];
+                    playerImg.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 }
                 break;
             case 1:
                 foreach (Image playerImg in player.birdsSprites)
                 {
-                    playerImg.sprite = stateSprites[1];
+                    playerImg.gameObject.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 break;
             default: break;
