@@ -68,6 +68,15 @@ public class DisplaySprites : MonoBehaviour
 
     private void Update()
     {
+        PlayerMovement();
+
+        if ((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.S) ||
+             Input.GetKeyDown(KeyCode.D)) && !gameLaunched)
+        {
+            gameLaunched = true;
+            scoreHour.UpdateScore(0);
+        }
+
         if (!gameLaunched)
         {
             timer += Time.deltaTime;
@@ -77,13 +86,10 @@ public class DisplaySprites : MonoBehaviour
         {
             RandomMove();
         }
+    }
 
-        if (Input.anyKeyDown)
-        {
-            gameLaunched = true;
-            //scoreHour.UpdateScore(2348);
-        }
-
+    private void PlayerMovement()
+    {
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Move("up", player);
@@ -100,18 +106,6 @@ public class DisplaySprites : MonoBehaviour
         {
             Move("right", player);
         }
-
-        // Debug
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeDamage();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            scoreHour.UpdateScore(26);
-        }
-
 
     }
 
