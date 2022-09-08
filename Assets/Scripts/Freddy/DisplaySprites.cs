@@ -15,8 +15,7 @@ public class DisplaySprites : MonoBehaviour
     [Tooltip("Drop the sprites of the life.")]
     public List<Image> lifeSprites;
 
-    [HideInInspector]
-    public Image player;
+    [HideInInspector] public Image player;
 
     private Image[,] birdPosition = new Image[3, 3];
 
@@ -76,7 +75,8 @@ public class DisplaySprites : MonoBehaviour
         PlayerMovement();
 
         if ((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.S) ||
-             Input.GetKeyDown(KeyCode.D)) && !gameLaunched)
+             Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || 
+             Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) && !gameLaunched)
         {
             gameLaunched = true;
             scoreHour.UpdateScore(0);
@@ -96,19 +96,19 @@ public class DisplaySprites : MonoBehaviour
 
     private void PlayerMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Move("up", player);
         }
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             Move("down", player);
         }
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Move("left", player);
         }
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             Move("right", player);
         }
