@@ -309,6 +309,7 @@ public class DisplaySprites : MonoBehaviour
         {
             AudioManager.Instance.PlayerHit();
             GameManager.Instance.scoreDifficulty = 0;
+            GameManager.Instance.catController.attackDelay = GameManager.Instance.catController.attackDelayNormal;
             StopAllCoroutines();
             //GameManager.Instance.catController.PlayPatern();
             life--;

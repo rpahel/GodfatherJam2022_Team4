@@ -75,6 +75,10 @@ public class Patern : MonoBehaviour
 
                 switch (GameManager.Instance.scoreDifficulty)
                 {
+                    case 0:
+                        catController.attackDelay = catController.attackDelayNormal;
+                        catController.difficultyType = DifficultyType.EASY;
+                        break;
                     case 5:
                         catController.attackDelay -= catController.changeSpeed;
                         catController.difficultyType = DifficultyType.EASY;
@@ -102,8 +106,9 @@ public class Patern : MonoBehaviour
                 if (GameManager.Instance.scoreDifficulty >= 30 && GameManager.Instance.scoreDifficulty % 5 == 0)
                 {
                     catController.attackDelay -= catController.changeSpeedAlways;
-                    catController.attackDelay = Mathf.Clamp(catController.attackDelay, catController.minAttackDelay, catController.maxAttackDelay);
                 }
+                catController.attackDelay = Mathf.Clamp(catController.attackDelay, catController.minAttackDelay, catController.maxAttackDelay);
+                Debug.Log(catController.attackDelay);
             }
 
         }
