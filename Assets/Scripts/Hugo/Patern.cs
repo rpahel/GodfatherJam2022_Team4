@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Difficulty;
 using UnityEngine;
 
 public class Patern : MonoBehaviour
@@ -63,8 +64,44 @@ public class Patern : MonoBehaviour
 
             yield return new WaitForSeconds(catController.stayDelay);
 
-            if(GameManager.Instance.player.gameLaunched)
+            if (GameManager.Instance.player.gameLaunched)
+            {
                 GameManager.Instance.player.scoreHour.UpdateScore(++GameManager.Instance.score);
+                GameManager.Instance.scoreDifficulty++;
+                Debug.Log(GameManager.Instance.scoreDifficulty);
+
+                switch (GameManager.Instance.scoreDifficulty)
+                {
+                    case 5:
+                        catController.attackDelay -= catController.changeSpeed;
+                        catController.difficultyType = DifficultyType.EASY;
+                        break;
+                    case 10:
+                        catController.attackDelay = catController.attackDelayNormal;
+                        catController.difficultyType = DifficultyType.NORMAL;
+                        break;
+                    case 15:
+                        catController.attackDelay -= catController.changeSpeed;
+                        catController.difficultyType = DifficultyType.NORMAL;
+                        break;
+                    case 20:
+                        catController.attackDelay = catController.attackDelayNormal;
+                        catController.difficultyType = DifficultyType.HARD;
+                        break;
+                    case 25:
+                        catController.attackDelay -= catController.changeSpeed;
+                        catController.difficultyType = DifficultyType.HARD;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (GameManager.Instance.scoreDifficulty >= 30 && GameManager.Instance.scoreDifficulty % 5 == 0)
+                {
+                    catController.attackDelay -= catController.changeSpeedAlways;
+                    catController.attackDelay = Mathf.Clamp(catController.attackDelay, 0.1f, 1f);
+                }
+            }
 
         }
 

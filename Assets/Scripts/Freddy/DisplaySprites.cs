@@ -16,7 +16,6 @@ public class DisplaySprites : MonoBehaviour
     public List<Image> lifeSprites;
 
     [HideInInspector] public Image player;
-    private Image playerSpawn;
 
     private Image[,] birdPosition = new Image[3, 3];
 
@@ -36,7 +35,6 @@ public class DisplaySprites : MonoBehaviour
     private float timer = 0f;
 
     public bool automaticPlayer = false;
-
     private void Start()
     {
         // Player doesn't play
@@ -61,7 +59,6 @@ public class DisplaySprites : MonoBehaviour
             }
         }
         player = birdsSprites[4];
-        playerSpawn = player;
         player.gameObject.SetActive(true);
 
         // Init life
@@ -80,12 +77,10 @@ public class DisplaySprites : MonoBehaviour
              Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || 
              Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) && !gameLaunched)
         {
-            GameManager.Instance.catController.PlayPatern();
-            player.gameObject.SetActive(false);
-            player = playerSpawn;
-            player.gameObject.SetActive(true);
+            StopCoroutine(scoreHour.TimeChanged());
             gameLaunched = true;
             scoreHour.UpdateScore(0);
+            GameManager.Instance.catController.PlayPatern();
         }
 
         if (!gameLaunched)
@@ -306,6 +301,7 @@ public class DisplaySprites : MonoBehaviour
     {
         if (gameLaunched)
         {
+            GameManager.Instance.scoreDifficulty = 0;
             StopAllCoroutines();
             //GameManager.Instance.catController.PlayPatern();
             life--;

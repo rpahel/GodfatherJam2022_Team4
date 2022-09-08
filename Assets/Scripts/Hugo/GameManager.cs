@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int score = 0;
+    public int scoreDifficulty = 0;
 
     public DisplaySprites player;
     public CatController catController;

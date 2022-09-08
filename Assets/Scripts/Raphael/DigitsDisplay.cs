@@ -43,14 +43,13 @@ public class DigitsDisplay : MonoBehaviour
         }
 
         colonObj = colon.gameObject;
-
-        StartCoroutine(TimeChanged());
     }
 
-    private IEnumerator TimeChanged()
+    public IEnumerator TimeChanged()
     {
         yield return new WaitForSeconds(30f);
-        UpdateTime();
+        if(!GameManager.Instance.player.gameLaunched)
+            UpdateTime();
     }
 
     public void UpdateScore(int score)
