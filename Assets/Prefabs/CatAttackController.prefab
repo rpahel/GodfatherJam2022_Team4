@@ -463,7 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paw: {fileID: 1945863821074418698}
   exclamation: {fileID: 1945863819476772050}
-  playerOnPaw: 0
+  eyes: {fileID: 0}
 --- !u!1 &1945863819567289283
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paw: {fileID: 1945863820238755272}
   exclamation: {fileID: 1945863821027189044}
-  playerOnPaw: 0
+  eyes: {fileID: 0}
 --- !u!1 &1945863819575290085
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paw: {fileID: 1945863820210326618}
   exclamation: {fileID: 1945863821152190075}
-  playerOnPaw: 0
+  eyes: {fileID: 0}
 --- !u!1 &1945863819586238591
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paw: {fileID: 1945863821077522696}
   exclamation: {fileID: 1945863820393735182}
-  playerOnPaw: 0
+  eyes: {fileID: 0}
 --- !u!1 &1945863819700232729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paw: {fileID: 1945863819586238591}
   exclamation: {fileID: 1945863819591385608}
-  playerOnPaw: 0
+  eyes: {fileID: 0}
 --- !u!1 &1945863820393735182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,7 +2010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paw: {fileID: 1945863819416502169}
   exclamation: {fileID: 1945863820168807752}
-  playerOnPaw: 0
+  eyes: {fileID: 0}
 --- !u!1 &1945863820570155325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paw: {fileID: 1945863821351872115}
   exclamation: {fileID: 1945863819968030067}
-  playerOnPaw: 0
+  eyes: {fileID: 0}
 --- !u!1 &1945863820773324452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2233,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  difficultyType: 0
   attackDelay: 1
+  changeSpeed: 0.5
+  changeSpeedAlways: 0.05
+  attackDelayNormal: 0
   stayDelay: 0.5
 --- !u!1 &1945863820950059628
 GameObject:
@@ -2698,7 +2702,7 @@ RectTransform:
   m_GameObject: {fileID: 1945863821077522696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2475, y: 1.2475, z: 1.2475}
+  m_LocalScale: {x: 1.2475001, y: 1.2475001, z: 1.2475001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1945863819661049173}
@@ -2706,7 +2710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.0000019073486}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1945863821077522703
@@ -2926,7 +2930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paw: {fileID: 1945863819322629695}
   exclamation: {fileID: 1945863819454595079}
-  playerOnPaw: 0
+  eyes: {fileID: 0}
 --- !u!1 &1945863821224253566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,7 +2984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paw: {fileID: 1945863819652510575}
   exclamation: {fileID: 1945863819700232729}
-  playerOnPaw: 0
+  eyes: {fileID: 0}
 --- !u!1 &1945863821351872115
 GameObject:
   m_ObjectHideFlags: 0
