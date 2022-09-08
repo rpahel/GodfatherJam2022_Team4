@@ -80,6 +80,7 @@ public class DisplaySprites : MonoBehaviour
              Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || 
              Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) && !gameLaunched)
         {
+            GameManager.Instance.catController.PlayPatern();
             player.gameObject.SetActive(false);
             player = playerSpawn;
             player.gameObject.SetActive(true);

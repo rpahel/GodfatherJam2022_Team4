@@ -43,6 +43,14 @@ public class DigitsDisplay : MonoBehaviour
         }
 
         colonObj = colon.gameObject;
+
+        StartCoroutine(TimeChanged());
+    }
+
+    private IEnumerator TimeChanged()
+    {
+        yield return new WaitForSeconds(30f);
+        UpdateTime();
     }
 
     public void UpdateScore(int score)
@@ -87,5 +95,7 @@ public class DigitsDisplay : MonoBehaviour
         {
             digit.UpdateDigit(localTime);
         }
+
+        StartCoroutine(TimeChanged());
     }
 }

@@ -17,7 +17,7 @@ public class CatController : MonoBehaviour
 
     void Start()
     {
-        PlayPatern();
+        DisablePaws();
     }
 
     public void PlayPatern()
