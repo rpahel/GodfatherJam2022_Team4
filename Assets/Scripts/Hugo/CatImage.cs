@@ -6,6 +6,5 @@ public class CatImage : MonoBehaviour
 {
     public GameObject paw;
     public GameObject exclamation;
-
-    public bool playerOnPaw;
+    public GameObject eyes;
 }
