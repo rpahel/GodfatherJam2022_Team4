@@ -16,6 +16,7 @@ public class DisplaySprites : MonoBehaviour
     public List<Image> lifeSprites;
 
     [HideInInspector] public Image player;
+    private Image playerSpawn;
 
     private Image[,] birdPosition = new Image[3, 3];
 
@@ -60,6 +61,7 @@ public class DisplaySprites : MonoBehaviour
             }
         }
         player = birdsSprites[4];
+        playerSpawn = player;
         player.gameObject.SetActive(true);
 
         // Init life
@@ -78,6 +80,9 @@ public class DisplaySprites : MonoBehaviour
              Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || 
              Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) && !gameLaunched)
         {
+            player.gameObject.SetActive(false);
+            player = playerSpawn;
+            player.gameObject.SetActive(true);
             gameLaunched = true;
             scoreHour.UpdateScore(0);
         }
@@ -96,19 +101,19 @@ public class DisplaySprites : MonoBehaviour
 
     private void PlayerMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Move("up", player);
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             Move("down", player);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Move("left", player);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             Move("right", player);
         }
