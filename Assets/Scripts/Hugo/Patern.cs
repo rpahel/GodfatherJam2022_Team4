@@ -71,7 +71,6 @@ public class Patern : MonoBehaviour
             {
                 GameManager.Instance.player.scoreHour.UpdateScore(++GameManager.Instance.score);
                 GameManager.Instance.scoreDifficulty++;
-                Debug.Log(GameManager.Instance.scoreDifficulty);
 
                 switch (GameManager.Instance.scoreDifficulty)
                 {
@@ -108,7 +107,6 @@ public class Patern : MonoBehaviour
                     catController.attackDelay -= catController.changeSpeedAlways;
                 }
                 catController.attackDelay = Mathf.Clamp(catController.attackDelay, catController.minAttackDelay, catController.maxAttackDelay);
-                Debug.Log(catController.attackDelay);
             }
 
         }
