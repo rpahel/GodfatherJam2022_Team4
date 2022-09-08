@@ -3065,6 +3065,10 @@ PrefabInstance:
       propertyPath: catController
       value: 
       objectReference: {fileID: 618082635}
+    - target: {fileID: 6092778076662812484, guid: 2657505f8d342ec42bb0ab17f1a099d4, type: 3}
+      propertyPath: gameDifficulty
+      value: 
+      objectReference: {fileID: 11400000, guid: c4b1d1861ec54384a9f71a61b0338018, type: 2}
     - target: {fileID: 6092778076662812485, guid: 2657505f8d342ec42bb0ab17f1a099d4, type: 3}
       propertyPath: m_Name
       value: GameManager
