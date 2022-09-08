@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public DisplaySprites player;
     public CatController catController;
+    public GameDifficulty gameDifficulty;
     // Start is called before the first frame update
     void Awake()
     {
