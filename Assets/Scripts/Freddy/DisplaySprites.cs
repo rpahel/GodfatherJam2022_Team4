@@ -34,6 +34,9 @@ public class DisplaySprites : MonoBehaviour
 
     public float delay;
     private float timer = 0f;
+
+    public bool automaticPlayer = false;
+
     private void Start()
     {
         // Player doesn't play
@@ -41,7 +44,9 @@ public class DisplaySprites : MonoBehaviour
         if (!gameLaunched)
         {
             scoreHour.UpdateTime();
-            RandomMove();
+            
+            if(automaticPlayer)
+                RandomMove();
         }
 
         // Init sprites
@@ -84,7 +89,8 @@ public class DisplaySprites : MonoBehaviour
 
         if(timer >= delay)
         {
-            RandomMove();
+            if (automaticPlayer)
+                RandomMove();
         }
     }
 
