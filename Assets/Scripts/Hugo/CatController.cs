@@ -16,6 +16,8 @@ public class CatController : MonoBehaviour
     public Patern[] catPaternsHard;
     [HideInInspector] public DifficultyType difficultyType;
     public float attackDelay = 1f;
+    public float minAttackDelay = 0.1f;
+    public float maxAttackDelay = 1f;
     [Tooltip("The more you add, the fastest it will be when the difficulty is changing.")]
     public float changeSpeed = 0.5f;
     public float changeSpeedAlways = 0.05f;

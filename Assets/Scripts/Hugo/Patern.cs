@@ -102,7 +102,7 @@ public class Patern : MonoBehaviour
                 if (GameManager.Instance.scoreDifficulty >= 30 && GameManager.Instance.scoreDifficulty % 5 == 0)
                 {
                     catController.attackDelay -= catController.changeSpeedAlways;
-                    catController.attackDelay = Mathf.Clamp(catController.attackDelay, 0.1f, 1f);
+                    catController.attackDelay = Mathf.Clamp(catController.attackDelay, catController.minAttackDelay, catController.maxAttackDelay);
                 }
             }
 
