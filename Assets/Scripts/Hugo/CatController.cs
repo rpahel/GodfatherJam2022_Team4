@@ -65,7 +65,7 @@ public class CatController : MonoBehaviour
         {
             paws[i].paw.SetActive(false);
             paws[i].exclamation.SetActive(false);
-            paws[i].eyes.SetActive(false);
+            //paws[i].eyes.SetActive(false);
         }
     }
 }
