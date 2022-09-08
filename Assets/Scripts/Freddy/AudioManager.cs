@@ -74,6 +74,7 @@ public class AudioManager : MonoBehaviour
 
         if (playerMoves == null)
         {
+            Debug.Log("Nope");
             return;
         }
 
@@ -81,7 +82,7 @@ public class AudioManager : MonoBehaviour
         if (playerMoves.Count < 2)
         {
             clipCount = playerMoves[0].playerMoves.Count;
-            if (clipCount > 1)
+            if (clipCount >= 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
                 gameAudio.PlayOneShot(playerMoves[0].playerMoves[randClip]);
@@ -95,7 +96,7 @@ public class AudioManager : MonoBehaviour
                 if (playerMoves[i].audioType == AudioType.P_Move)
                 {
                     clipCount = playerMoves[i].playerMoves.Count;
-                    if (clipCount > 1)
+                    if (clipCount >= 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
                         gameAudio.PlayOneShot(playerMoves[i].playerMoves[randClip]);
@@ -116,7 +117,7 @@ public class AudioManager : MonoBehaviour
         if (playerHitsDeath.Count < 2)
         {
             clipCount = playerHitsDeath[0].playerHitsDeath.Count;
-            if (clipCount > 1)
+            if (clipCount >= 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
                 gameAudio.PlayOneShot(playerHitsDeath[0].playerHitsDeath[randClip]);
@@ -130,7 +131,7 @@ public class AudioManager : MonoBehaviour
                 if (playerHitsDeath[i].audioType == AudioType.P_Hit)
                 {
                     clipCount = playerHitsDeath[i].playerHitsDeath.Count;
-                    if (clipCount > 1)
+                    if (clipCount >= 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
                         gameAudio.PlayOneShot(playerHitsDeath[i].playerHitsDeath[randClip]);
@@ -151,7 +152,7 @@ public class AudioManager : MonoBehaviour
         if (playerHitsDeath.Count < 2)
         {
             clipCount = playerHitsDeath[0].playerHitsDeath.Count; 
-            if (clipCount > 1)
+            if (clipCount >= 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
                 gameAudio.PlayOneShot(playerHitsDeath[0].playerHitsDeath[randClip]);
@@ -165,7 +166,7 @@ public class AudioManager : MonoBehaviour
                 if (playerHitsDeath[i].audioType == AudioType.P_Death)
                 {
                     clipCount = playerHitsDeath[i].playerHitsDeath.Count;
-                    if (clipCount > 1)
+                    if (clipCount >= 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
                         gameAudio.PlayOneShot(playerHitsDeath[i].playerHitsDeath[randClip]);
@@ -186,7 +187,7 @@ public class AudioManager : MonoBehaviour
         if (catPatterns.Count < 2)
         {
             clipCount = catPatterns[0].catPatterns.Count;
-            if (clipCount > 1)
+            if (clipCount >= 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
                 gameAudio.PlayOneShot(catPatterns[0].catPatterns[randClip]);
@@ -200,7 +201,7 @@ public class AudioManager : MonoBehaviour
                 if (catPatterns[i].audioType == AudioType.C_Careful)
                 {
                     clipCount = catPatterns[i].catPatterns.Count;
-                    if (clipCount > 1)
+                    if (clipCount >= 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
                         gameAudio.PlayOneShot(catPatterns[i].catPatterns[randClip]);
@@ -221,7 +222,7 @@ public class AudioManager : MonoBehaviour
         if (catPatterns.Count < 2)
         {
             clipCount = catPatterns[0].catPatterns.Count;
-            if (clipCount > 1)
+            if (clipCount >= 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
                 gameAudio.PlayOneShot(catPatterns[0].catPatterns[randClip]);
@@ -235,7 +236,7 @@ public class AudioManager : MonoBehaviour
                 if (catPatterns[i].audioType == AudioType.C_Paw)
                 {
                     clipCount = catPatterns[i].catPatterns.Count;
-                    if (clipCount > 1)
+                    if (clipCount >= 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
                         gameAudio.PlayOneShot(catPatterns[i].catPatterns[randClip]);
@@ -256,7 +257,7 @@ public class AudioManager : MonoBehaviour
         if (catMoves.Count < 2)
         {
             clipCount = catMoves[0].catMoves.Count;
-            if (clipCount > 1)
+            if (clipCount >= 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
                 gameAudio.PlayOneShot(catMoves[0].catMoves[randClip]);
@@ -270,7 +271,7 @@ public class AudioManager : MonoBehaviour
                 if (catMoves[i].audioType == AudioType.C_Move)
                 {
                     clipCount = catMoves[i].catMoves.Count;
-                    if (clipCount > 1)
+                    if (clipCount >= 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
                         gameAudio.PlayOneShot(catMoves[i].catMoves[randClip]);

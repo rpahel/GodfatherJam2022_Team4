@@ -35,6 +35,8 @@ public class DisplaySprites : MonoBehaviour
     private float timer = 0f;
 
     public bool automaticPlayer = false;
+
+    public float timeBeforeDeath = 2f;
     private void Start()
     {
         // Player doesn't play
@@ -319,13 +321,13 @@ public class DisplaySprites : MonoBehaviour
             // Game Over
             AudioManager.Instance.PlayerDeath();
             StartCoroutine(PlayDeathSound());
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
     private IEnumerator PlayDeathSound()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeBeforeDeath);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     /* private IEnumerator PlayerDelay()

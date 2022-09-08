@@ -63,20 +63,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMoves:
-  - playerMoves: []
+  - playerMoves:
+    - {fileID: 8300000, guid: 4266b61aeea608f41bb10cba1536e8d5, type: 3}
     audioType: 1
   playerHitsDeath:
   - playerHitsDeath: []
     audioType: 0
-  - playerHitsDeath: []
+  - playerHitsDeath:
+    - {fileID: 8300000, guid: 42aeac7b47729c447a4b3f365f769acb, type: 3}
     audioType: 2
   catMoves:
-  - catMoves: []
+  - catMoves:
+    - {fileID: 8300000, guid: 0d673f9a80158f1488a2b65b3d20e83d, type: 3}
     audioType: 5
   catPatterns:
-  - catPatterns: []
+  - catPatterns:
+    - {fileID: 8300000, guid: a7d56e2b6d1567a4082305670a04c9f0, type: 3}
     audioType: 3
-  - catPatterns: []
+  - catPatterns:
+    - {fileID: 8300000, guid: debe72486d4ba0c4dbb0b449a0a8ff70, type: 3}
     audioType: 4
 --- !u!82 &2719701468135143691
 AudioSource:
@@ -88,7 +93,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4266b61aeea608f41bb10cba1536e8d5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
