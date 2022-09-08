@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    private AudioSource audio;
+    private AudioSource gameAudio;
 
     public enum AudioType
     {
@@ -65,12 +65,17 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        gameAudio = GetComponent<AudioSource>();
     }
 
     public void PlayerMove()
     {
         int clipCount = 0;
+
+        if (playerMoves == null)
+        {
+            return;
+        }
 
         // If there is only one sound Type and multiple Clips
         if (playerMoves.Count < 2)
@@ -79,7 +84,7 @@ public class AudioManager : MonoBehaviour
             if (clipCount > 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
-                audio.PlayOneShot(playerMoves[0].playerMoves[randClip]);
+                gameAudio.PlayOneShot(playerMoves[0].playerMoves[randClip]);
             }
         }
         // If there is multiple sound Types and multiple Clips
@@ -93,7 +98,7 @@ public class AudioManager : MonoBehaviour
                     if (clipCount > 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
-                        audio.PlayOneShot(playerMoves[i].playerMoves[randClip]);
+                        gameAudio.PlayOneShot(playerMoves[i].playerMoves[randClip]);
                     }
                 }
             }
@@ -103,7 +108,10 @@ public class AudioManager : MonoBehaviour
     public void PlayerHit()
     {
         int clipCount = 0;
-
+        if (playerHitsDeath == null)
+        {
+            return;
+        }
         // If there is only one sound Type and multiple Clips
         if (playerHitsDeath.Count < 2)
         {
@@ -111,7 +119,7 @@ public class AudioManager : MonoBehaviour
             if (clipCount > 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
-                audio.PlayOneShot(playerHitsDeath[0].playerHitsDeath[randClip]);
+                gameAudio.PlayOneShot(playerHitsDeath[0].playerHitsDeath[randClip]);
             }
         }
         // If there is multiple sound Types and multiple Clips
@@ -125,7 +133,7 @@ public class AudioManager : MonoBehaviour
                     if (clipCount > 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
-                        audio.PlayOneShot(playerHitsDeath[i].playerHitsDeath[randClip]);
+                        gameAudio.PlayOneShot(playerHitsDeath[i].playerHitsDeath[randClip]);
                     }
                 }
             }
@@ -135,7 +143,10 @@ public class AudioManager : MonoBehaviour
     public void PlayerDeath()
     {
         int clipCount = 0;
-
+        if (playerHitsDeath == null)
+        {
+            return;
+        }
         // If there is only one sound Type and multiple Clips
         if (playerHitsDeath.Count < 2)
         {
@@ -143,7 +154,7 @@ public class AudioManager : MonoBehaviour
             if (clipCount > 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
-                audio.PlayOneShot(playerHitsDeath[0].playerHitsDeath[randClip]);
+                gameAudio.PlayOneShot(playerHitsDeath[0].playerHitsDeath[randClip]);
             }
         }
         // If there is multiple sound Types and multiple Clips
@@ -157,7 +168,7 @@ public class AudioManager : MonoBehaviour
                     if (clipCount > 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
-                        audio.PlayOneShot(playerHitsDeath[i].playerHitsDeath[randClip]);
+                        gameAudio.PlayOneShot(playerHitsDeath[i].playerHitsDeath[randClip]);
                     }
                 }
             }
@@ -167,7 +178,10 @@ public class AudioManager : MonoBehaviour
     public void CatCareful()
     {
         int clipCount = 0;
-
+        if (catPatterns == null)
+        {
+            return;
+        }
         // If there is only one sound Type and multiple Clips
         if (catPatterns.Count < 2)
         {
@@ -175,7 +189,7 @@ public class AudioManager : MonoBehaviour
             if (clipCount > 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
-                audio.PlayOneShot(catPatterns[0].catPatterns[randClip]);
+                gameAudio.PlayOneShot(catPatterns[0].catPatterns[randClip]);
             }
         }
         // If there is multiple sound Types and multiple Clips
@@ -189,7 +203,7 @@ public class AudioManager : MonoBehaviour
                     if (clipCount > 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
-                        audio.PlayOneShot(catPatterns[i].catPatterns[randClip]);
+                        gameAudio.PlayOneShot(catPatterns[i].catPatterns[randClip]);
                     }
                 }
             }
@@ -199,7 +213,10 @@ public class AudioManager : MonoBehaviour
     public void CatPaw()
     {
         int clipCount = 0;
-
+        if (catPatterns == null)
+        {
+            return;
+        }
         // If there is only one sound Type and multiple Clips
         if (catPatterns.Count < 2)
         {
@@ -207,7 +224,7 @@ public class AudioManager : MonoBehaviour
             if (clipCount > 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
-                audio.PlayOneShot(catPatterns[0].catPatterns[randClip]);
+                gameAudio.PlayOneShot(catPatterns[0].catPatterns[randClip]);
             }
         }
         // If there is multiple sound Types and multiple Clips
@@ -221,7 +238,7 @@ public class AudioManager : MonoBehaviour
                     if (clipCount > 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
-                        audio.PlayOneShot(catPatterns[i].catPatterns[randClip]);
+                        gameAudio.PlayOneShot(catPatterns[i].catPatterns[randClip]);
                     }
                 }
             }
@@ -231,7 +248,10 @@ public class AudioManager : MonoBehaviour
     public void CatMove()
     {
         int clipCount = 0;
-
+        if (catMoves == null)
+        {
+            return;
+        }
         // If there is only one sound Type and multiple Clips
         if (catMoves.Count < 2)
         {
@@ -239,7 +259,7 @@ public class AudioManager : MonoBehaviour
             if (clipCount > 1)
             {
                 int randClip = UnityEngine.Random.Range(0, clipCount);
-                audio.PlayOneShot(catMoves[0].catMoves[randClip]);
+                gameAudio.PlayOneShot(catMoves[0].catMoves[randClip]);
             }
         }
         // If there is multiple sound Types and multiple Clips
@@ -253,7 +273,7 @@ public class AudioManager : MonoBehaviour
                     if (clipCount > 1)
                     {
                         int randClip = UnityEngine.Random.Range(0, clipCount);
-                        audio.PlayOneShot(catMoves[i].catMoves[randClip]);
+                        gameAudio.PlayOneShot(catMoves[i].catMoves[randClip]);
                     }
                 }
             }
