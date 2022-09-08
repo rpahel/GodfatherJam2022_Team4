@@ -2984,8 +2984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e95a19764d349f43b9b2f68efada1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paw: {fileID: 0}
-  exclamation: {fileID: 0}
+  paw: {fileID: 1587424418111814338}
+  exclamation: {fileID: 6462471661176882544}
 --- !u!1 &7645030441095713605
 GameObject:
   m_ObjectHideFlags: 0

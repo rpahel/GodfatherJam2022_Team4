@@ -1265,6 +1265,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1021936067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1587424418111814338, guid: 01a2f4a2cdc28ac42b1f32868b924e82, type: 3}
+  m_PrefabInstance: {fileID: 5282011407840153722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1084665395 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1945863819567289281, guid: d8eb90f3db9410d4887a74cdc07b8dda, type: 3}
@@ -2207,6 +2212,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9430fc1d78e775459212598c2b78286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2040769094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6462471661176882544, guid: 01a2f4a2cdc28ac42b1f32868b924e82, type: 3}
+  m_PrefabInstance: {fileID: 5282011407840153722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1710336584278745576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3665,6 +3675,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7645030441078167467, guid: 01a2f4a2cdc28ac42b1f32868b924e82, type: 3}
+      propertyPath: paw
+      value: 
+      objectReference: {fileID: 1021936067}
+    - target: {fileID: 7645030441078167467, guid: 01a2f4a2cdc28ac42b1f32868b924e82, type: 3}
+      propertyPath: exclamation
+      value: 
+      objectReference: {fileID: 2040769094}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01a2f4a2cdc28ac42b1f32868b924e82, type: 3}
 --- !u!1001 &6092778075983869423

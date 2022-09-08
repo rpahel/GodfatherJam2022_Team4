@@ -100,18 +100,22 @@ public class DisplaySprites : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             Move("up", player);
+            AudioManager.Instance.PlayerMove();
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             Move("down", player);
+            AudioManager.Instance.PlayerMove();
         }
         if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Move("left", player);
+            AudioManager.Instance.PlayerMove();
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             Move("right", player);
+            AudioManager.Instance.PlayerMove();
         }
 
     }
@@ -301,6 +305,7 @@ public class DisplaySprites : MonoBehaviour
     {
         if (gameLaunched)
         {
+            AudioManager.Instance.PlayerHit();
             GameManager.Instance.scoreDifficulty = 0;
             StopAllCoroutines();
             //GameManager.Instance.catController.PlayPatern();
@@ -312,8 +317,15 @@ public class DisplaySprites : MonoBehaviour
         if (life <= 0)
         {
             // Game Over
+            AudioManager.Instance.PlayerDeath();
+            StartCoroutine(PlayDeathSound());
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    private IEnumerator PlayDeathSound()
+    {
+        yield return new WaitForSeconds(2f);
     }
 
     /* private IEnumerator PlayerDelay()
