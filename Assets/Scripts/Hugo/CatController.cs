@@ -39,22 +39,45 @@ public class CatController : MonoBehaviour
 
         int i = 0;
 
-        switch (difficultyType)
+        int lifePlayer = GameManager.Instance.player.life;
+
+        if (lifePlayer <= 0)
         {
+            difficultyType = DifficultyType.NONE;
+        }
+
+        bool easyMode = GameManager.Instance.gameDifficulty.easyModeSelected;
+        switch (difficultyType)
+        { 
+            // we take the easy pattern and we take a rand int to know what pattern to use + speedUp
             case DifficultyType.EASY:
-                // we take the easy pattern and we take a rand int to know what pattern to use + speedUp
-                i = Random.Range(0, catPaternsEasy.Length);
-                catPaternsEasy[i].Play();
+                if (easyMode)
+                {
+                    i = Random.Range(0, catPaternsEasy.Length);
+                    catPaternsEasy[i].Play();
+                }
+                else
+                {
+                    goto case DifficultyType.NORMAL;
+                }
                 break;
             case DifficultyType.NORMAL:
                 i = Random.Range(0, catPaternsNormal.Length);
                 catPaternsNormal[i].Play();
                 break;
             case DifficultyType.HARD:
-                i = Random.Range(0, catPaternsHard.Length);
-                catPaternsHard[i].Play();
+                if (!easyMode)
+                {
+                    i = Random.Range(0, catPaternsHard.Length);
+                    catPaternsHard[i].Play();
+                }
+                else
+                {
+                    difficultyType = DifficultyType.NORMAL;
+                }
                 break;
             case DifficultyType.NONE:
+                Debug.Log("GameOver");
                 goto default;
             default:
                 break;
