@@ -49,12 +49,12 @@ public class Patern : MonoBehaviour
             for (int k = 0; k < catMoves[i].catPaws.Length; k++)
             {
                 catMoves[i].catPaws[k].paw.SetActive(true);
-                AudioManager.Instance.CatPaw();
 
             //if (catMoves[i].catPaws[k].playerOnPaw)
                 //    GameManager.Instance.player.TakeDamage();
 
-            }
+            } 
+            AudioManager.Instance.CatPaw();
 
             yield return new WaitForSeconds(catController.stayDelay);
 
