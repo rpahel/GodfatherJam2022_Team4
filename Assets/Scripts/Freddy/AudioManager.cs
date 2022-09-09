@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    private AudioSource gameAudio;
+    public AudioSource gameAudio;
 
     public enum AudioType
     {
@@ -56,16 +56,14 @@ public class AudioManager : MonoBehaviour
 
     public List<CatPatterns> catPatterns;
 
+    public AudioClip grandMotherClip;
+    public AudioClip doorClip;
+    public AudioClip catClip;
+    public List<AudioClip> catPawsClip;
 
     private void Awake()
     {
         Instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameAudio = GetComponent<AudioSource>();
     }
 
     public void PlayerMove()
@@ -277,6 +275,39 @@ public class AudioManager : MonoBehaviour
                         gameAudio.PlayOneShot(catMoves[i].catMoves[randClip]);
                     }
                 }
+            }
+        }
+    }
+
+    public void GrandMotherByeByeStart()
+    {
+        gameAudio.clip = grandMotherClip;
+        gameAudio.Play();
+    }
+
+    public void DoorStart()
+    {
+        gameAudio.clip = doorClip;
+        gameAudio.Play();
+    }
+    public void CatStart(bool isCatPaws = false, bool leftPaw = false)
+    {
+        if (!isCatPaws)
+        {
+            gameAudio.clip = catClip;
+            gameAudio.Play();
+        }
+        else
+        {
+            if (leftPaw)
+            {
+                gameAudio.clip = catPawsClip[0];
+                gameAudio.Play();
+            }
+            else
+            {
+                gameAudio.clip = catPawsClip[1];
+                gameAudio.Play();
             }
         }
     }

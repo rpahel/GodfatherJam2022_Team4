@@ -1903,7 +1903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6a6e51704618b40b7cc5f006028d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startAnimSecondsBetweenSprites: 0.5
+  startAnimSecondsBetweenSprites: 0.8
   minCooldownInGameSpritesChange: 1
   maxCooldownInGameSpritesChange: 3
   startAnimationSprites:

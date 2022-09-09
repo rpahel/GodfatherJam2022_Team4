@@ -50,6 +50,9 @@ MonoBehaviour:
   scoreDifficulty: 0
   player: {fileID: 0}
   catController: {fileID: 0}
+  gameDifficulty: {fileID: 11400000, guid: c4b1d1861ec54384a9f71a61b0338018, type: 2}
+  animInGame: {fileID: 0}
+  inGameCatAnim: 0
 --- !u!114 &6640930661023375897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35f7d5f07f09a540bdc358a0ce0ba6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameAudio: {fileID: 2719701468135143691}
   playerMoves:
   - playerMoves:
     - {fileID: 8300000, guid: 4266b61aeea608f41bb10cba1536e8d5, type: 3}
@@ -83,6 +87,12 @@ MonoBehaviour:
   - catPatterns:
     - {fileID: 8300000, guid: debe72486d4ba0c4dbb0b449a0a8ff70, type: 3}
     audioType: 4
+  grandMotherClip: {fileID: 8300000, guid: 166de5487f592a74480d2c646d58743f, type: 3}
+  doorClip: {fileID: 8300000, guid: 8dd6eb9f25bcd804fa3f36492bd42c90, type: 3}
+  catClip: {fileID: 8300000, guid: 37acfa3ff15c66b4a8567e713d07fa12, type: 3}
+  catPawsClip:
+  - {fileID: 8300000, guid: debe72486d4ba0c4dbb0b449a0a8ff70, type: 3}
+  - {fileID: 8300000, guid: 52b5d28349d20e14a9249d1729db86ea, type: 3}
 --- !u!82 &2719701468135143691
 AudioSource:
   m_ObjectHideFlags: 0
@@ -93,7 +103,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4266b61aeea608f41bb10cba1536e8d5, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
