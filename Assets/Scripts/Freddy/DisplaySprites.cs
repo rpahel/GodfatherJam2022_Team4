@@ -28,6 +28,7 @@ public class DisplaySprites : MonoBehaviour
     public int GetSetPositionSpriteR { get { return _GetSetPositionSpriteR; } set { _GetSetPositionSpriteR = value; } }
 
     public int life = 3;
+    private bool gameOver = false;
     private StatePlayer statePlayer;
 
     public bool gameLaunched;
@@ -103,27 +104,29 @@ public class DisplaySprites : MonoBehaviour
 
     private void PlayerMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (gameOver == false)
         {
-            Move("up", player);
-            AudioManager.Instance.PlayerMove();
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Move("up", player);
+                AudioManager.Instance.PlayerMove();
+            }
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Move("down", player);
+                AudioManager.Instance.PlayerMove();
+            }
+            if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                Move("left", player);
+                AudioManager.Instance.PlayerMove();
+            }
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                Move("right", player);
+                AudioManager.Instance.PlayerMove();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            Move("down", player);
-            AudioManager.Instance.PlayerMove();
-        }
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            Move("left", player);
-            AudioManager.Instance.PlayerMove();
-        }
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            Move("right", player);
-            AudioManager.Instance.PlayerMove();
-        }
-
     }
 
     public bool CheckPosition(string direction, Image spriteActive)
@@ -326,6 +329,7 @@ public class DisplaySprites : MonoBehaviour
         {
             // Game Over
             //StopAllCoroutines();
+            gameOver = true;
             AudioManager.Instance.PlayerDeath();
             StartCoroutine(PlayDeathSound());
         }
