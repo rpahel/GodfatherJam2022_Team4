@@ -8,6 +8,11 @@ public class MenuManager : MonoBehaviour
 
     public GameDifficulty gameDifficulty;
 
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
+
     public void SelectGameA()
     {
         gameDifficulty.easyModeSelected = true;
