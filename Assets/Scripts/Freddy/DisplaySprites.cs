@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class DisplaySprites : MonoBehaviour
 {
@@ -37,6 +39,7 @@ public class DisplaySprites : MonoBehaviour
     public bool automaticPlayer = false;
 
     public float timeBeforeDeath = 2f;
+
     private void Start()
     {
         // Player doesn't play
@@ -82,6 +85,7 @@ public class DisplaySprites : MonoBehaviour
             StopCoroutine(scoreHour.TimeChanged());
             gameLaunched = true;
             scoreHour.UpdateScore(0);
+            GameManager.Instance.animInGame.StartCoroutine(CatAnimation(true));
             GameManager.Instance.catController.PlayPatern();
         }
 
