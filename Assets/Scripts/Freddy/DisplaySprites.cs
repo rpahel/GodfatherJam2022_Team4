@@ -320,7 +320,7 @@ public class DisplaySprites : MonoBehaviour
         if (life <= 0)
         {
             // Game Over
-            StopAllCoroutines();
+            //StopAllCoroutines();
             AudioManager.Instance.PlayerDeath();
             StartCoroutine(PlayDeathSound());
         }
