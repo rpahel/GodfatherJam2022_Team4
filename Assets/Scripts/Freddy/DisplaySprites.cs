@@ -317,6 +317,7 @@ public class DisplaySprites : MonoBehaviour
             StopAllCoroutines();
             //GameManager.Instance.catController.PlayPatern();
             life--;
+            life = Mathf.Clamp(life, 0, 3);
             lifeSprites[life].gameObject.SetActive(false);
             statePlayer.UpdateState(life);
         }
