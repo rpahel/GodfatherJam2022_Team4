@@ -85,7 +85,7 @@ public class DisplaySprites : MonoBehaviour
             StopCoroutine(scoreHour.TimeChanged());
             gameLaunched = true;
             scoreHour.UpdateScore(0);
-            GameManager.Instance.animInGame.StartCoroutine(CatAnimation(true));
+            GameManager.Instance.animInGame.StartCatAnimation();
             GameManager.Instance.catController.PlayPatern();
         }
 
