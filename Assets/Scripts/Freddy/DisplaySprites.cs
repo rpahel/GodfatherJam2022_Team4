@@ -28,6 +28,7 @@ public class DisplaySprites : MonoBehaviour
     public int GetSetPositionSpriteR { get { return _GetSetPositionSpriteR; } set { _GetSetPositionSpriteR = value; } }
 
     public int life = 3;
+    public float flickeringDelay = 0.2f;
     private bool gameOver = false;
     private StatePlayer statePlayer;
 
@@ -323,15 +324,54 @@ public class DisplaySprites : MonoBehaviour
             life = Mathf.Clamp(life, 0, 3);
             lifeSprites[life].gameObject.SetActive(false);
             statePlayer.UpdateState(life);
+            if (life <= 0)
+            {
+                // Game Over
+                //StopAllCoroutines();
+                gameOver = true;
+                AudioManager.Instance.PlayerDeath();
+                StartCoroutine(PlayDeathSound());
+            } else
+            {
+                StartCoroutine(PlayerFlickering());
+            }
         }
 
-        if (life <= 0)
+    }
+
+    private IEnumerator PlayerFlickering()
+    {
+        for(int i = 0; i < 3; i++)
         {
-            // Game Over
-            //StopAllCoroutines();
-            gameOver = true;
-            AudioManager.Instance.PlayerDeath();
-            StartCoroutine(PlayDeathSound());
+            for (int j = 0; j < 3; j++)
+            {
+                if (birdPosition[i, j].gameObject.TryGetComponent<Collider2D>(out Collider2D colliderPlayer))
+                {
+                    colliderPlayer.enabled = false;
+                }
+            }
+        }
+        player.gameObject.SetActive(false);
+        yield return new WaitForSeconds(flickeringDelay);
+        player.gameObject.SetActive(true);
+        yield return new WaitForSeconds(flickeringDelay);
+        player.gameObject.SetActive(false);
+        yield return new WaitForSeconds(flickeringDelay);
+        player.gameObject.SetActive(true);
+        yield return new WaitForSeconds(flickeringDelay);
+        player.gameObject.SetActive(false);
+        yield return new WaitForSeconds(flickeringDelay);
+        player.gameObject.SetActive(true);
+        yield return new WaitForSeconds(flickeringDelay);
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (birdPosition[i, j].gameObject.TryGetComponent<Collider2D>(out Collider2D colliderPlayer))
+                {
+                    colliderPlayer.enabled = true;
+                }
+            }
         }
     }
 
